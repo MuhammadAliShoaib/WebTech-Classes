@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+            //alert("JQuery is working");
+            let num = $('#num').val();
+            $.ajax({
+                url:"/xhr-action", 
+                method: "GET", 
+                data: { num }
+            }).done(function(res){
+                console.log(res)
+                $('#result').text(res.num);
+            })
+        })
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="num" placeholder="Enter value" id="num" value="10"/>
+</body>
+
+</html>
